@@ -44,6 +44,6 @@ void exti_enable_irq(exti_source_e source, IRQn_Type irq_num){
 void exti_disable_irq(exti_source_e source, IRQn_Type irq_num)
 {
 
-  EXTI->EMR |= (1 << source);
+  EXTI->IMR &= ~(1 << source);
   NVIC_DisableIRQ(irq_num);
 }

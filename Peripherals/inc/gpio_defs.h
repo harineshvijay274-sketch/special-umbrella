@@ -15,4 +15,7 @@
 #define USER_LED_PORT     GPIOA
 #define USER_LED_PIN      GPIO_PIN_5
 
+#define USER_BUTTON_PORT  GPIOC
+#define USER_BUTTON_PIN   GPIO_PIN_13
+
 #endif /* INC_GPIO_DEFS_H_ */

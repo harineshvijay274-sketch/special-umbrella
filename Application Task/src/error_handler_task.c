@@ -93,7 +93,7 @@ static void error_handler_task(void *param)
         case EVT_MODBUS_DATA_UPDATE_INPUT_REGS_FAIL:
 
           // Blink the USER LED in a specific pattern for all of the above error types
-          error_handler_led_blink();
+         error_handler_led_blink();
           break;
 
         default:

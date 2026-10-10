@@ -99,7 +99,7 @@ static void sys_health_monitor_task(void *param)
 
 
   // Initialize the IWDG here if not in Debug Mode
- // if ((CoreDebug->DHCSR & CoreDebug_DHCSR_C_DEBUGEN_Msk) == 0)
+ //if ((CoreDebug->DHCSR & CoreDebug_DHCSR_C_DEBUGEN_Msk) == 0)
   //{
     // Debugger not connected, safe to enable IWDG
    iwdg_init();
@@ -122,12 +122,13 @@ static void sys_health_monitor_task(void *param)
     // Optional: Get the temperature for demonstration purposes
     if (ADC1_CONVERSION_COMPLETE)
     {
-      // Todo update `internal_temp` using `get_temperature(adc_temp_val)`
+
       internal_temp = adc_to_temperature(adc_temp_val);
       ADC1_CONVERSION_COMPLETE = 0;
     }
 
     // Check if all critical tasks are running correctly
+
     system_healthy = g_sensors_task_ok && mcu_temp_ok;
 
 
@@ -138,10 +139,10 @@ static void sys_health_monitor_task(void *param)
       g_sensors_task_ok = false;
       // ... reset any other task flags as well
     }
-    else
-    {
+  //  else
+    //{
       // Handle the system health issue (e.g., log error to FRAM, take corrective action)
-    }
+   // }
 
     // Get rid of unused variable warning
     (void)internal_temp;
@@ -187,7 +188,7 @@ void ADC_IRQHandler(void){
 
       //toggel the led (can be used for debugging and signal processing)
 
-     gpio_toggle_pin(USER_LED_PORT, USER_LED_PIN);
+  //   gpio_toggle_pin(USER_LED_PORT, USER_LED_PIN);
 
      //read the ADC value from the temperature sensor
      adc_temp_val = ADC1->DR;
